@@ -1,6 +1,8 @@
 package com.example.android.firstapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +52,21 @@ public class MainActivity extends AppCompatActivity {
 
         //locate buttons and textviews from XML file
         Button btnHit = (Button)findViewById(R.id.btnHit);
+        ImageButton btcHit = (ImageButton)findViewById(R.id.btcButton);
+
+        /*
+        ImageButton ethHit = (ImageButton)findViewById(R.id.ethButton);
+        ImageButton xrpHit = (ImageButton)findViewById(R.id.xrpButton);
+        ImageButton ltcHit = (ImageButton)findViewById(R.id.ltcButton);
+        ImageButton nemHit = (ImageButton)findViewById(R.id.nemButton);
+        ImageButton neoHit = (ImageButton)findViewById(R.id.neoButton);
+        ImageButton xmrHit = (ImageButton)findViewById(R.id.xmrButton);
+        ImageButton omgHit = (ImageButton)findViewById(R.id.omgButton);
+        ImageButton zecHit = (ImageButton)findViewById(R.id.zecButton);
+        ImageButton dashHit = (ImageButton)findViewById(R.id.dashButton);
+        ImageButton qtumHit = (ImageButton)findViewById(R.id.qtumButton);
+        */
+
         bitcoinValue = (TextView)findViewById(R.id.bitcoin_value);
         etherValue = (TextView)findViewById(R.id.ethereum_value);
         rippleValue = (TextView)findViewById(R.id.ripple_value);
@@ -70,6 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 fetchPrices();
             }
         });
+
+        btcHit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayStarters(v);
+            }
+        });
+
+
+
 
     }
 
@@ -109,6 +137,21 @@ public class MainActivity extends AppCompatActivity {
         new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=ZEC&tsyms=USD", "zec");
 
     }
+
+
+    public void updateBTC(){
+        new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", "btc");
+    }
+
+
+    /////////////////////////
+    ////     Intents     ////
+    /////////////////////////
+    public void displayStarters(View view){
+        Intent intent = new Intent(this, BitcoinActivity.class);
+        startActivity(intent);
+    }
+
 
     //Every new AsyncTask must extend AsyncTask
     public class JSONTask extends AsyncTask<String,String, String>{

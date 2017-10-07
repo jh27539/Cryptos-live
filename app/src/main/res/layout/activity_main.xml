@@ -29,18 +29,20 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/btcButton"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@null"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/bitcoin" />
-
 
             <TextView
                 android:id="@+id/bitcoin_value"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$5,000"
+                android:text="loading"
                 android:textColor="@color/bitcoin" />
 
         </LinearLayout>
@@ -53,7 +55,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/ethButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/ethereum" />
@@ -63,7 +68,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$300"
+                android:text="loading"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -76,7 +81,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/xrpButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/ripple" />
@@ -86,7 +94,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$1.00"
+                android:text="loading"
                 android:textColor="@color/ripple" />
 
         </LinearLayout>
@@ -99,7 +107,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/ltcButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/litecoin" />
@@ -109,7 +120,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$50.00"
+                android:text="loading"
                 android:textColor="@color/litecoin" />
 
         </LinearLayout>
@@ -122,7 +133,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/dashButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/dash" />
@@ -132,7 +146,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$300.00"
+                android:text="loading"
                 android:textColor="@color/ripple" />
 
         </LinearLayout>
@@ -145,7 +159,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/nemButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/nem" />
@@ -155,7 +172,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$1.00"
+                android:text="loading"
                 android:textColor="@color/nem" />
 
         </LinearLayout>
@@ -168,7 +185,10 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/neoButton"
+            android:scaleType="fitCenter"
+            android:background="@null"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/neo" />
@@ -178,7 +198,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="$30.00"
+            android:text="loading"
             android:textColor="@color/neo" />
 
     </LinearLayout>
@@ -191,7 +211,10 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/xmrButton"
+            android:scaleType="fitCenter"
+            android:background="@null"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/monero" />
@@ -201,7 +224,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="$8.00"
+            android:text="loading"
             android:textColor="@color/monero" />
 
     </LinearLayout>
@@ -214,7 +237,10 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/omgButton"
+            android:scaleType="fitCenter"
+            android:background="@null"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/omisego" />
@@ -224,7 +250,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="$8.00"
+            android:text="loading"
             android:textColor="@color/omisego" />
 
     </LinearLayout>
@@ -237,7 +263,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/qtumButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/qtum" />
@@ -247,7 +276,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$8.00"
+                android:text="loading"
                 android:textColor="@color/quantum" />
 
         </LinearLayout>
@@ -260,7 +289,10 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/zecButton"
+                android:scaleType="fitCenter"
+                android:background="@null"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 app:srcCompat="@drawable/zcash" />
@@ -270,7 +302,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="$8.00"
+                android:text="loading"
                 android:textColor="@color/zcash" />
 
         </LinearLayout>
