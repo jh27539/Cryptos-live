@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Live Cryptos</string>
+    <string name="loading">Loading</string>
+    <string name="update_button">update</string>
+    <string name="my_bitcoin">My Bitcoin</string>
+    <string name="exchange_value">Exchange Value</string>
+    <string name="profits">Profit/Loss</string>
+    <string name="cryptos">Cryptocurency</string>
+
 </resources>

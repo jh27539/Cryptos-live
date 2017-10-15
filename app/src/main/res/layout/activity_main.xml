@@ -10,7 +10,7 @@
 
 
     <LinearLayout
-        android:layout_width="395dp"
+        android:layout_width="430dp"
         android:layout_height="602dp"
         android:orientation="vertical"
         android:layout_margin="0dp"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="60dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -42,7 +42,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/bitcoin" />
 
         </LinearLayout>
@@ -68,7 +68,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/white" />
 
         </LinearLayout>
@@ -94,7 +94,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/ripple" />
 
         </LinearLayout>
@@ -120,7 +120,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/litecoin" />
 
         </LinearLayout>
@@ -146,7 +146,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/ripple" />
 
         </LinearLayout>
@@ -172,7 +172,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/nem" />
 
         </LinearLayout>
@@ -198,7 +198,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="loading"
+            android:text="@string/loading"
             android:textColor="@color/neo" />
 
     </LinearLayout>
@@ -224,7 +224,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="loading"
+            android:text="@string/loading"
             android:textColor="@color/monero" />
 
     </LinearLayout>
@@ -250,7 +250,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:gravity="center"
-            android:text="loading"
+            android:text="@string/loading"
             android:textColor="@color/omisego" />
 
     </LinearLayout>
@@ -276,7 +276,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/quantum" />
 
         </LinearLayout>
@@ -302,7 +302,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:text="loading"
+                android:text="@string/loading"
                 android:textColor="@color/zcash" />
 
         </LinearLayout>
@@ -315,7 +315,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
-            android:text="Update" />
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:shadowColor="@color/bitcoin"
+            android:text="@string/update_button" />
 
 
     </LinearLayout>

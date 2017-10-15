@@ -29,17 +29,37 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView bitcoinValue;
-    private TextView etherValue;
-    private TextView rippleValue;
-    private TextView litecoinValue;
-    private TextView dashValue;
-    private TextView nemValue;
-    private TextView neoValue;
-    private TextView moneroValue;
-    private TextView omisegoValue;
-    private TextView qtumValue;
-    private TextView zcashValue;
+    public static final String BTC_KEY = "btc_key";
+    public static final String BTC_VALUE = "btc_value";
+
+    private TextView bitcoinTextView;
+    private TextView etherTextView;
+    private TextView rippleTextView;
+    private TextView litecoinTextView;
+    private TextView dashTextView;
+    private TextView nemTextView;
+    private TextView neoTextView;
+    private TextView moneroTextView;
+    private TextView omisegoTextView;
+    private TextView qtumTextView;
+    private TextView zcashTextView;
+
+    private String Bitcoin;
+    private String Ether;
+    private String Ripple;
+    private String LiteCoin;
+    private String Dash;
+    private String NEM;
+    private String Neo;
+    private String Monero;
+    private String Qtum;
+    private String OmiseGo;
+    private String ZCash;
+
+    private double myEther = 0.9974556739466443;
+    private double myOmiseGo = 2;
+    private double myQtum = 3;
+    private double myRipple = 292;
 
 
     /////////////////////////
@@ -67,19 +87,19 @@ public class MainActivity extends AppCompatActivity {
         ImageButton qtumHit = (ImageButton)findViewById(R.id.qtumButton);
         */
 
-        bitcoinValue = (TextView)findViewById(R.id.bitcoin_value);
-        etherValue = (TextView)findViewById(R.id.ethereum_value);
-        rippleValue = (TextView)findViewById(R.id.ripple_value);
-        litecoinValue = (TextView)findViewById(R.id.litecoin_value);
-        dashValue = (TextView)findViewById(R.id.dash_value);
-        nemValue = (TextView)findViewById(R.id.nem_value);
-        neoValue = (TextView)findViewById(R.id.neo_value);
-        moneroValue = (TextView)findViewById(R.id.monero_value);
-        omisegoValue = (TextView)findViewById(R.id.omisego_value);
-        qtumValue = (TextView)findViewById(R.id.qtum_value);
-        zcashValue = (TextView)findViewById(R.id.zcash_value);
+        bitcoinTextView = (TextView)findViewById(R.id.bitcoin_value);
+        etherTextView = (TextView)findViewById(R.id.ethereum_value);
+        rippleTextView = (TextView)findViewById(R.id.ripple_value);
+        litecoinTextView = (TextView)findViewById(R.id.litecoin_value);
+        dashTextView = (TextView)findViewById(R.id.dash_value);
+        nemTextView = (TextView)findViewById(R.id.nem_value);
+        neoTextView = (TextView)findViewById(R.id.neo_value);
+        moneroTextView = (TextView)findViewById(R.id.monero_value);
+        omisegoTextView = (TextView)findViewById(R.id.omisego_value);
+        qtumTextView = (TextView)findViewById(R.id.qtum_value);
+        zcashTextView = (TextView)findViewById(R.id.zcash_value);
 
-        fetchPrices();
+        //fetchPrices();
 
         btnHit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,12 +112,11 @@ public class MainActivity extends AppCompatActivity {
         btcHit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayStarters(v);
+
+                displayBitcoin(v);
+
             }
         });
-
-
-
 
     }
 
@@ -139,20 +158,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void updateBTC(){
-        new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", "btc");
-    }
-
 
     /////////////////////////
     ////     Intents     ////
     /////////////////////////
-    public void displayStarters(View view){
+    public void displayBitcoin(View view){
         Intent intent = new Intent(this, BitcoinActivity.class);
+        new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", "btc");
+        intent.putExtra(BTC_KEY, Bitcoin);
         startActivity(intent);
     }
 
 
+
+    ////////////////////////////
+    ////     AsyncTasks     ////
+    ////////////////////////////
     //Every new AsyncTask must extend AsyncTask
     public class JSONTask extends AsyncTask<String,String, String>{
 
@@ -215,37 +236,38 @@ public class MainActivity extends AppCompatActivity {
             result = result.substring(3);
 
             if(currency.equals("btc")){
-                bitcoinValue.setText(result);
+                bitcoinTextView.setText(result);
+                Bitcoin = result;
             }
             else if (currency.equals("eth")){
-                etherValue.setText(result);
+                etherTextView.setText(result);
             }
             else if (currency.equals("xrp")){
-                rippleValue.setText(result);
+                rippleTextView.setText(result);
             }
             else if (currency.equals("ltc")){
-                litecoinValue.setText(result);
+                litecoinTextView.setText(result);
             }
             else if (currency.equals("das")){
-                dashValue.setText(result);
+                dashTextView.setText(result);
             }
             else if (currency.equals("xem")){
-                nemValue.setText(result);
+                nemTextView.setText(result);
             }
             else if (currency.equals("neo")){
-                neoValue.setText(result);
+                neoTextView.setText(result);
             }
             else if (currency.equals("xmr")){
-                moneroValue.setText(result);
+                moneroTextView.setText(result);
             }
             else if (currency.equals("omg")){
-                omisegoValue.setText(result);
+                omisegoTextView.setText(result);
             }
             else if (currency.equals("qtm")){
-                qtumValue.setText(result);
+                qtumTextView.setText(result);
             }
             else if (currency.equals("zec")){
-                zcashValue.setText(result);
+                zcashTextView.setText(result);
             }
         }
     }
