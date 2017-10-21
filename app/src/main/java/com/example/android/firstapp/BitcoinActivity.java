@@ -70,4 +70,9 @@ public class BitcoinActivity extends AppCompatActivity {
         return "$" + Double.toString(calculatedBTC);
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> 582516e46c4e9969ea8cc87de4e816fcaafa1a63

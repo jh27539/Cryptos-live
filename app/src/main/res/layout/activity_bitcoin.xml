@@ -76,7 +76,11 @@
                 android:textSize="20sp" />
 
         </LinearLayout>
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 582516e46c4e9969ea8cc87de4e816fcaafa1a63
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
@@ -101,7 +105,11 @@
                 android:textColor="@color/green"
                 android:textSize="20sp" />
 
+<<<<<<< HEAD
         </LinearLayout>
+=======
+        </LinearLayout>		
+>>>>>>> 582516e46c4e9969ea8cc87de4e816fcaafa1a63
 
         <LinearLayout
             android:layout_width="match_parent"
