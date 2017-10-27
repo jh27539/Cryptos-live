@@ -2,14 +2,17 @@
 <resources>
 
     <array name="spinArray">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>USD</item>
+        <item>ETH</item>
+        <item>XRP</item>
+        <item>LTC</item>
+        <item>DASH</item>
+        <item>NEM</item>
+        <item>NEO</item>
+        <item>XMR</item>
+        <item>OMG</item>
+        <item>QTM</item>
+        <item>ZEC</item>
     </array>
 
 </resources>

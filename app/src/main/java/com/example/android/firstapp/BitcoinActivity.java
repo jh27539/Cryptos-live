@@ -26,7 +26,7 @@ public class BitcoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bitcoin);
 
-        Intent  intent = getIntent();
+        Intent intent = getIntent();
         String value = intent.getStringExtra(MainActivity.BTC_KEY);
 
         myBitcoinString.concat(" BTC");
@@ -44,12 +44,11 @@ public class BitcoinActivity extends AppCompatActivity {
         convertedBTC.setText(calculateMyBitcoin(myBitcoin, convertedBitcoin));
 
         TextView profit = (TextView) findViewById(R.id.profit_value);
-        profit.setText("$" + Double.toString(Math.round(profitMargin*100)/100.0d));
+        profit.setText("$" + Double.toString(Math.round(profitMargin * 100) / 100.0d));
 
-        if (profitMargin > 0){
+        if (profitMargin > 0) {
             profit.setTextColor(this.getResources().getColor(R.color.green));
-        }
-        else{
+        } else {
             profit.setTextColor(this.getResources().getColor(R.color.darkred));
         }
 
@@ -62,17 +61,12 @@ public class BitcoinActivity extends AppCompatActivity {
 
     }
 
-    public String calculateMyBitcoin(double myBTC, double liveBitcoin){
+    public String calculateMyBitcoin(double myBTC, double liveBitcoin) {
 
-        double calculatedBTC = liveBitcoin*myBTC;
-        calculatedBTC = Math.round(calculatedBTC*100)/100.0d;
+        double calculatedBTC = liveBitcoin * myBTC;
+        calculatedBTC = Math.round(calculatedBTC * 100) / 100.0d;
 
         return "$" + Double.toString(calculatedBTC);
     }
-
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> 582516e46c4e9969ea8cc87de4e816fcaafa1a63
