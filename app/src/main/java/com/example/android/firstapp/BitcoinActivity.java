@@ -26,32 +26,38 @@ public class BitcoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bitcoin);
 
+        //Retrieve Bitcoin value from MainActivity
         Intent intent = getIntent();
         String value = intent.getStringExtra(MainActivity.BTC_KEY);
 
-        myBitcoinString.concat(" BTC");
+        //Set up variables
         double convertedBitcoin = Double.parseDouble(value.substring(1));
         double myUSD = Double.parseDouble(calculateMyBitcoin(myBitcoin, convertedBitcoin).substring(1));
         double profitMargin = myUSD - myInvestment;
 
+        //Display Bitcoin's current value
         TextView bitcoinHeader = (TextView) findViewById(R.id.btcHeader);
         bitcoinHeader.setText("Bitcoin " + value);
 
+        //Display my Bitcoin
         TextView btcAmount = (TextView) findViewById(R.id.myBTC);
+        myBitcoinString.concat(" BTC");
         btcAmount.setText(myBitcoinString);
 
+        //Display Bitcoin in dollars
         TextView convertedBTC = (TextView) findViewById(R.id.converted_btc);
         convertedBTC.setText(calculateMyBitcoin(myBitcoin, convertedBitcoin));
 
+        //Calculate and display Profit/Loss
         TextView profit = (TextView) findViewById(R.id.profit_value);
         profit.setText("$" + Double.toString(Math.round(profitMargin * 100) / 100.0d));
-
         if (profitMargin > 0) {
             profit.setTextColor(this.getResources().getColor(R.color.green));
         } else {
             profit.setTextColor(this.getResources().getColor(R.color.darkred));
         }
 
+        //Configure spinner
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinArray, android.R.layout.simple_spinner_item);
@@ -60,6 +66,7 @@ public class BitcoinActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
     }
+
 
     public String calculateMyBitcoin(double myBTC, double liveBitcoin) {
 

@@ -30,7 +30,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     public static final String BTC_KEY = "btc_key";
-    public static final String BTC_VALUE = "btc_value";
 
     private TextView bitcoinTextView;
     private TextView etherTextView;
@@ -99,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
         qtumTextView = (TextView)findViewById(R.id.qtum_value);
         zcashTextView = (TextView)findViewById(R.id.zcash_value);
 
-        //fetchPrices();
-
         btnHit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,15 +115,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    /////////////////////////
-    ////     onStart    /////
-    /////////////////////////
-    @Override
-    protected void onStart(){
-        super.onStart();
     }
 
 
@@ -156,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
         new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=ZEC&tsyms=USD", "zec");
 
     }
-
 
 
     /////////////////////////

@@ -16,7 +16,6 @@
 
         <!-- ADD THE LAST 2 PARAMETERS FOR MEMORY ALLOCATION -->
 
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" >
@@ -32,7 +31,9 @@
         <activity android:name=".BitcoinActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".MainActivity"
+                android:screenOrientation="portrait"
+                />
         </activity>
 
     </application>

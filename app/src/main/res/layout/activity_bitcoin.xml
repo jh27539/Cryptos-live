@@ -19,9 +19,9 @@
             android:layout_width="129dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
             android:background="@null"
             android:scaleType="fitEnd"
-            android:layout_marginBottom="20dp"
             app:srcCompat="@drawable/bitcoin" />
 
         <TextView
@@ -32,8 +32,6 @@
             android:text="@string/loading"
             android:textColor="@color/bitcoin"
             android:textSize="30sp"
-
-
             />
 
         <ImageView
