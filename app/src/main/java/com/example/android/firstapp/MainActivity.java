@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -30,6 +31,8 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     public static final String BTC_KEY = "btc_key";
+    public static final String CRYPTO_KEY = "crypto_key";
+    private static final String TAG = "MainActivity";
 
     private TextView bitcoinTextView;
     private TextView etherTextView;
@@ -55,10 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private String OmiseGo;
     private String ZCash;
 
-    private double myEther = 0.9974556739466443;
-    private double myOmiseGo = 2;
-    private double myQtum = 3;
-    private double myRipple = 292;
+    DatabaseHelper mDatabaseHelper;
 
 
     /////////////////////////
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
         //locate buttons and textviews from XML file
         Button btnHit = (Button)findViewById(R.id.btnHit);
         ImageButton btcHit = (ImageButton)findViewById(R.id.btcButton);
+        ImageButton ethHit = (ImageButton)findViewById(R.id.ethButton);
 
         /*
-        ImageButton ethHit = (ImageButton)findViewById(R.id.ethButton);
         ImageButton xrpHit = (ImageButton)findViewById(R.id.xrpButton);
         ImageButton ltcHit = (ImageButton)findViewById(R.id.ltcButton);
         ImageButton nemHit = (ImageButton)findViewById(R.id.nemButton);
@@ -98,10 +98,12 @@ public class MainActivity extends AppCompatActivity {
         qtumTextView = (TextView)findViewById(R.id.qtum_value);
         zcashTextView = (TextView)findViewById(R.id.zcash_value);
 
+        mDatabaseHelper = new DatabaseHelper(this);
+
         btnHit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "giggity", Toast.LENGTH_SHORT).show();
+                toastMessage("Updating");
                 fetchPrices();
             }
         });
@@ -109,12 +111,17 @@ public class MainActivity extends AppCompatActivity {
         btcHit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 displayBitcoin(v);
-
             }
         });
 
+
+        ethHit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                displayDatabase(v);
+            }
+        });
     }
 
 
@@ -130,6 +137,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void fetchPrices(){
+
+        String load = "Loading";
+
+        // Set all prices to display "Loading"
+        bitcoinTextView.setText(load);
+        etherTextView.setText(load);
+        rippleTextView.setText(load);
+        litecoinTextView.setText(load);
+        dashTextView.setText(load);
+        nemTextView.setText(load);
+        neoTextView.setText(load);
+        moneroTextView.setText(load);
+        omisegoTextView.setText(load);
+        qtumTextView.setText(load);
+        zcashTextView.setText(load);
 
         new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", "btc");
         new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD", "eth");
@@ -153,6 +175,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BitcoinActivity.class);
         new JSONTask().execute("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD", "btc");
         intent.putExtra(BTC_KEY, Bitcoin);
+        intent.putExtra(CRYPTO_KEY, "BTC");
+        startActivity(intent);
+    }
+
+    public void displayDatabase(View view){
+        Intent intent = new Intent(this, ListDataActivity.class);
         startActivity(intent);
     }
 
@@ -219,8 +247,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result){
             super.onPostExecute(result);
 
+            Log.d(TAG, "onPostExecute: the String is " + result);
             String currency = result.substring(0,3);
             result = result.substring(3);
+            AddData(currency);
 
             if(currency.equals("btc")){
                 bitcoinTextView.setText(result);
@@ -258,4 +288,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void AddData(String newEntry){
+        boolean insertData = mDatabaseHelper.addData(newEntry);
+
+        if(insertData)
+            Log.d(TAG, "Inserted " + newEntry + " to database");
+        else
+            Log.d(TAG, "Something went wrong with adding :(");
+
+        Log.d(TAG, "New entry is: " + newEntry);
+    }
+
+    private void toastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
 }

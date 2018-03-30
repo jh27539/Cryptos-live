@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cryptos.iml" filepath="$PROJECT_DIR$/Cryptos.iml" />
+      <module fileurl="file://D:\Documents\GitHub\Cryptos-live\Cryptos.iml" filepath="D:\Documents\GitHub\Cryptos-live\Cryptos.iml" />
       <module fileurl="file://$PROJECT_DIR$/Cryptos-live.iml" filepath="$PROJECT_DIR$/Cryptos-live.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

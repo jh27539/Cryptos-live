@@ -35,6 +35,8 @@
                 android:screenOrientation="portrait"
                 />
         </activity>
+        <activity android:name=".ListDataActivity" />
+        <activity android:name=".EditDataActivity" />
 
     </application>
 

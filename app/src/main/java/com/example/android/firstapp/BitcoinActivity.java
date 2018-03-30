@@ -23,12 +23,14 @@ public class BitcoinActivity extends AppCompatActivity {
     /////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitcoin);
 
         //Retrieve Bitcoin value from MainActivity
         Intent intent = getIntent();
         String value = intent.getStringExtra(MainActivity.BTC_KEY);
+        String cryptoType = intent.getStringExtra(MainActivity.CRYPTO_KEY);
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_bitcoin);
 
         //Set up variables
         double convertedBitcoin = Double.parseDouble(value.substring(1));
