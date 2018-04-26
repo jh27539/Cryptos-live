@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private String OmiseGo;
     private String ZCash;
 
-    DatabaseHelper mDatabaseHelper;
+    //DatabaseHelper mDatabaseHelper;
 
 
     /////////////////////////
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         qtumTextView = (TextView)findViewById(R.id.qtum_value);
         zcashTextView = (TextView)findViewById(R.id.zcash_value);
 
-        mDatabaseHelper = new DatabaseHelper(this);
+        //mDatabaseHelper = new DatabaseHelper(this);
 
         btnHit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onPostExecute: the String is " + result);
             String currency = result.substring(0,3);
             result = result.substring(3);
-            AddData(currency);
+            //AddData(currency);
 
             if(currency.equals("btc")){
                 bitcoinTextView.setText(result);
@@ -289,6 +289,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
     public void AddData(String newEntry){
         boolean insertData = mDatabaseHelper.addData(newEntry);
 
@@ -299,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "New entry is: " + newEntry);
     }
+*/
 
     private void toastMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

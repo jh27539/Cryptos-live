@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import static com.example.android.firstapp.R.layout.activity_bitcoin;
+
 /**
  * Created by Yatch on 10/6/2017.
  */
@@ -30,7 +32,7 @@ public class BitcoinActivity extends AppCompatActivity {
         String cryptoType = intent.getStringExtra(MainActivity.CRYPTO_KEY);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitcoin);
+        setContentView(activity_bitcoin);
 
         //Set up variables
         double convertedBitcoin = Double.parseDouble(value.substring(1));
